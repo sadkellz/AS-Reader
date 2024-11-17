@@ -4,6 +4,7 @@ from pymem.memory import read_bytes
 import helper
 from helper import read_int
 
+# Could do a more sophisticated check to see if its either Slippi Dolphin or regular Dolphin.
 pm = pymem.Pymem("Dolphin.exe")
 EMU_SIZE = 0x2000000
 PTR_CONVERT = 0x80000000
@@ -52,6 +53,7 @@ PLAYER_BLOCKS = [0x453080, 0x453F10, 0x454DA0, 0x455C30]
 ENTITY_PTRS = [0x453130, 0x453FC0, 0x454E50, 0x455CE0]
 
 
+# example function
 def get_char_ids(base_addr):
     for player in PLAYER_BLOCKS:
         cid = read_int(pm, base_addr + player)
